@@ -1,0 +1,229 @@
+{
+  "app_name": "https://www.saucedemo.com/",
+  "test_cases": [
+    {
+      "test_name": "valid_login_standard_user",
+      "description": "Valid Login with standard_user/secret_sauce",
+      "path": "/",
+      "steps": [
+        {
+          "action": "fill",
+          "selector": "#user-name",
+          "value": "standard_user",
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "fill",
+          "selector": "#password",
+          "value": "secret_sauce",
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "click",
+          "selector": "#login-button",
+          "value": null,
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "expect_url_contains",
+          "selector": null,
+          "value": null,
+          "expected": "/inventory.html",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "expect_text",
+          "selector": "[data-test='title']",
+          "value": null,
+          "expected": "Products",
+          "timeout_ms": 5000
+        }
+      ]
+    },
+    {
+      "test_name": "invalid_login_standard_user_secret_sauce1",
+      "description": "Invalid Login with standard_user/secret_sauce1",
+      "path": "/",
+      "steps": [
+        {
+          "action": "fill",
+          "selector": "#user-name",
+          "value": "standard_user",
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "fill",
+          "selector": "#password",
+          "value": "secret_sauce1",
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "click",
+          "selector": "#login-button",
+          "value": null,
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "wait_for_selector",
+          "selector": "[data-test='error']",
+          "value": null,
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "expect_text",
+          "selector": "[data-test='error']",
+          "value": null,
+          "expected": "Epic sadface",
+          "timeout_ms": 5000
+        }
+      ]
+    },
+    {
+      "test_name": "invalid_login_error_user_secret_sauce",
+      "description": "Invalid Login with error_user/secret_sauce",
+      "path": "/",
+      "steps": [
+        {
+          "action": "fill",
+          "selector": "#user-name",
+          "value": "error_user",
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "fill",
+          "selector": "#password",
+          "value": "secret_sauce",
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "click",
+          "selector": "#login-button",
+          "value": null,
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "wait_for_selector",
+          "selector": "[data-test='error']",
+          "value": null,
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "expect_text",
+          "selector": "[data-test='error']",
+          "value": null,
+          "expected": "Epic sadface",
+          "timeout_ms": 5000
+        }
+      ]
+    },
+    {
+      "test_name": "login_add_to_cart_checkout_sauce_labs_fleece_jacket",
+      "description": "Login with standard_user. Then add \"Sauce Labs Fleece Jacket\" to cart . Then complete checkout using random details",
+      "path": "/",
+      "steps": [
+        {
+          "action": "fill",
+          "selector": "#user-name",
+          "value": "standard_user",
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "fill",
+          "selector": "#password",
+          "value": "secret_sauce",
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "click",
+          "selector": "#login-button",
+          "value": null,
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "click",
+          "selector": "[data-test='add-to-cart-sauce-labs-fleece-jacket']",
+          "value": null,
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "click",
+          "selector": ".shopping_cart_link",
+          "value": null,
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "expect_text",
+          "selector": ".inventory_item_name",
+          "value": null,
+          "expected": "Sauce Labs Fleece Jacket",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "click",
+          "selector": "[data-test='checkout']",
+          "value": null,
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "fill",
+          "selector": "[data-test='firstName']",
+          "value": "Auto",
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "fill",
+          "selector": "[data-test='lastName']",
+          "value": "User",
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "fill",
+          "selector": "[data-test='postalCode']",
+          "value": "12345",
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "click",
+          "selector": "[data-test='continue']",
+          "value": null,
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "click",
+          "selector": "[data-test='finish']",
+          "value": null,
+          "expected": null,
+          "timeout_ms": 5000
+        },
+        {
+          "action": "expect_text",
+          "selector": "[data-test='complete-header']",
+          "value": null,
+          "expected": "Thank you for your order!",
+          "timeout_ms": 5000
+        }
+      ]
+    }
+  ]
+}

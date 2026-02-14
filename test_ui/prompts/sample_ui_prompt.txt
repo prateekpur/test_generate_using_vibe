@@ -1,0 +1,9 @@
+Target app: https://www.saucedemo.com/
+
+Generate UI tests for:
+1) Valid Login with standard_user/secret_sauce
+2) Invalid Login with standard_user/secret_sauce1
+3) Invalid Login with error_user/secret_sauce
+4) Login with standard_user. Then add "Sauce Labs Fleece Jacket" to cart . Then complete checkout using random details
+
+Use stable selectors and keep the plan concise.

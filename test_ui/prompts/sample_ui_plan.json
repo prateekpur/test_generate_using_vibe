@@ -1,0 +1,110 @@
+{
+  "app_name": "saucedemo",
+  "test_cases": [
+    {
+      "test_name": "valid_login_with_standard_user",
+      "description": "Valid login with standard_user and secret_sauce redirects to inventory",
+      "path": "/",
+      "steps": [
+        {
+          "action": "fill",
+          "selector": "#user-name",
+          "value": "standard_user",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "fill",
+          "selector": "#password",
+          "value": "secret_sauce",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "click",
+          "selector": "#login-button",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "expect_url_contains",
+          "expected": "/inventory.html",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "expect_text",
+          "selector": "[data-test='title']",
+          "expected": "Products",
+          "timeout_ms": 5000
+        }
+      ]
+    },
+    {
+      "test_name": "invalid_login_wrong_password",
+      "description": "Invalid login with standard_user and wrong password shows error",
+      "path": "/",
+      "steps": [
+        {
+          "action": "fill",
+          "selector": "#user-name",
+          "value": "standard_user",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "fill",
+          "selector": "#password",
+          "value": "secret_sauce1",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "click",
+          "selector": "#login-button",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "wait_for_selector",
+          "selector": "[data-test='error']",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "expect_text",
+          "selector": "[data-test='error']",
+          "expected": "Username and password do not match any user in this service",
+          "timeout_ms": 5000
+        }
+      ]
+    },
+    {
+      "test_name": "invalid_login_with_error_user",
+      "description": "Invalid login with error_user and secret_sauce shows error",
+      "path": "/",
+      "steps": [
+        {
+          "action": "fill",
+          "selector": "#user-name",
+          "value": "error_user",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "fill",
+          "selector": "#password",
+          "value": "secret_sauce",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "click",
+          "selector": "#login-button",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "wait_for_selector",
+          "selector": "[data-test='error']",
+          "timeout_ms": 5000
+        },
+        {
+          "action": "expect_text",
+          "selector": "[data-test='error']",
+          "expected": "Epic sadface",
+          "timeout_ms": 5000
+        }
+      ]
+    }
+  ]
+}
